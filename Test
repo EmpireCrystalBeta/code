@@ -1,0 +1,20 @@
+@echo off 
+::Choisissons un nombre aléatoire. 
+:NOMBRE_ALEA
+SET nombremystere=%RANDOM% 
+IF %nombremystere% GTR 1000 GOTO NOMBRE_ALEA 
+IF %nombremystere% LSS 1 GOTO NOMBRE_ALEA 
+:DEBUT 
+set /P nombrechoisi=Choisis un nombre: 
+If %nombrechoisi% LSS %nombremystere% GOTO SUPERIEUR 
+If %nombrechoisi% GTR %nombremystere% GOTO INFERIEUR 
+GOTO FIN 
+:SUPERIEUR 
+echo Le nombre mystère est supérieur. 
+GOTO DEBUT 
+:INFERIEUR 
+echo Le nombre mystère est inférieur. 
+::On crée une boucle avec goto DEBUT
+GOTO DEBUT 
+:FIN 
+Echo Bien joue!
